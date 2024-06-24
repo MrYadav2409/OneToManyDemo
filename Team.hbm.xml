@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="pojo.Team" table="Team01">
+		
+		<id name="tid" type="int" column="TeamId">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="tname" column="TeamName" type="string" />
+		<set name="playes" table="PLAYERS" cascade="all" lazy="false">
+		   <key column="tid" not-null="true"></key>
+		   <one-to-many class="pojo.Players"/>
+		</set>
+		</class>
+</hibernate-mapping>
